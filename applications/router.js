@@ -10,8 +10,11 @@ const jsonParser = bodyParser.json();
 const stringFields = ['companyName', 'positionTitle', 'location', 'postingLink', 'status', 'notes'];
 
 router.get('/', (req, res) => {
+  let status = req.query.filter || "";
   Application
-    .find()
+    .find({
+      status
+    })
     .then(applications => {
       res.json(applications.map(application => application.serialize()));
     })
