@@ -11,9 +11,10 @@ const stringFields = ['companyName', 'positionTitle', 'location', 'postingLink',
 
 router.get('/', (req, res) => {
   let status = req.query.filter || "";
+  console.log(status);
   Application
     .find({
-      status
+      //status
     })
     .then(applications => {
       res.json(applications.map(application => application.serialize()));
