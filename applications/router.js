@@ -17,10 +17,10 @@ const stringFields = [
 ];
 
 router.get("/", (req, res) => {
-  let status = req.query.filter || "";
-  Application.find({
-    // status
-  })
+  let filter = req.query.status ? { status: req.query.status } : {};
+
+  Application.find(filter)
+
     .then(applications => {
       res.json(applications.map(application => application.serialize()));
     })
