@@ -41,7 +41,6 @@ router.get("/:id", (req, res) => {
 
 router.post("/", jsonParser, (req, res) => {
   const requiredFields = ["companyName", "positionTitle"];
-  console.log(req.body);
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
