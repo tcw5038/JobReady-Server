@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const { Application } = require("./models");
 
 const router = express.Router();
+const passport = require("passport");
+const jwtAuth = passport.authenticate("jwt", { session: false });
 
 const jsonParser = bodyParser.json();
 const stringFields = [
@@ -16,9 +18,11 @@ const stringFields = [
   "notes"
 ];
 
-router.get("/", (req, res) => {
+router.get("/", jwtAuth, (req, res) => {
   let filter = req.query.status ? { status: req.query.status } : {};
-
+  filter.user = req.user.id;
+  console.log(filter);
+  console.log(req.user);
   Application.find(filter)
 
     .then(applications => {
@@ -39,7 +43,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", jsonParser, (req, res) => {
+router.post("/", jwtAuth, jsonParser, (req, res) => {
   const requiredFields = ["companyName", "positionTitle"];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -55,7 +59,8 @@ router.post("/", jsonParser, (req, res) => {
     location: req.body.location,
     postingLink: req.body.postingLink,
     status: req.body.status,
-    notes: req.body.notes
+    notes: req.body.notes,
+    user: req.user.id
   })
     .then(application => res.status(201).json(application.serialize()))
     .catch(err => {

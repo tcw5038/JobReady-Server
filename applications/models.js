@@ -16,7 +16,8 @@ const ApplicationSchema = mongoose.Schema({
   dateAdded: { type: Date, default: Date.now() },
   postingLink: { type: String, default: "" },
   status: { type: String, default: "Pending Completion" },
-  notes: { type: String, default: "" }
+  notes: { type: String, default: "" },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
 });
 
 ApplicationSchema.methods.serialize = function() {
