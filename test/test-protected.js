@@ -44,34 +44,5 @@ describe("Protected endpoint", function() {
     return User.remove({});
   });
 
-  describe("/api/protected", function() {
-    it("Should reject requests with an invalid token", function() {
-      const token = jwt.sign(
-        {
-          username,
-          firstName,
-          lastName
-        },
-        "wrongSecret",
-        {
-          algorithm: "HS256",
-          expiresIn: "7d"
-        }
-      );
-
-      return chai
-        .request(app)
-        .get("/api/protected")
-        .set("Authorization", `Bearer ${token}`)
-        .then(() => expect.fail(null, null, "Request should not succeed"))
-        .catch(err => {
-          if (err instanceof chai.AssertionError) {
-            throw err;
-          }
-
-          const res = err.response;
-          expect(res).to.have.status(401);
-        });
-    });
-  });
+  describe("/api/protected", function() {});
 });
