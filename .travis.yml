@@ -9,6 +9,6 @@ deploy:
   provider: heroku
   api_key:
     secure: Qq4r5bqkz+KSrAbatIP07zcSIJV7WuDx71c8uUTqJEg3IcMtNe1PKhvRsD4zHZ3YhP2c7m68tmJCYzj6CP4GfdS+xVXW2vxgJ9XCd6OpED/+Htp2vGbg6avs6guDWwVxEwrm4L6UEG+h67INen4r5w4DYVnCE5dSLVJkxMRlf1E5cpnCCoVjRolOuZT6+P12DadQsijBWqn19Bl1lvPT7q7bY/JI6NfJKa6jYcUAoySU2ZD4igZ7fP0Pxlb3EkJZDZbxwxsI3D0Zedaw/K6wavAt3uBtah7B/H3XG+KHt4oXYRIknMlw6gL51TmecKjKCO61taEYX65clfSMBNPt11UH+GELKdBfZL8MzjantmSHavTcW3CP/PWacRreaHbARhwMPTVBPLv+pzgCg2Ocm9fylKr1cYZKUyCR5bsVMEceVwa4/8NhUff7ergNPXnFQG0OT0lnIerjNsJD/PiB3i8MNPSo+i28TxrTiOi5HvrbWlTtMYOiax21Yt42lA57P7qlNEAe/amAyGXVF6gS0ZgeDxVTEIrQqRaln+nfG/dzMgJ2sIGsXrV5+L4uD7lCUAyYXvb1f+Mpmlvc7jCEDFjTvoR2miWEacPdeOUt97fXCDOjV/nrStfaaFmRxFTT2vrYMWRhAwERsSbSvqwnoZuLSctILRErGou5vTA9Qbk=
-  app: JobReady-Server
+  app: aqueous-forest-45517
   on:
     repo: tcw5038/JobReady-Server
